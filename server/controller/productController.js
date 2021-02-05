@@ -32,3 +32,27 @@ exports.create = (req, res) => {
         })).catch(error => res.status(400).send(error))
 }
 
+exports.edit = (req, res) => {
+    Products.findByIdAndUpdate(req.params.id, {
+        productName: req.body.productName,
+        productCategory: req.body.productCategory,
+        productBrand: req.body.productBrand,
+        productPrice: req.body.productPrice,
+        productSkinType: req.body.productSkinType,
+        productSize: req.body.productSize,
+        productDescription: req.body.productDescription,
+        productSold: req.body.productSold,
+        productImage: req.body.productImage
+    }).then(data => res.status(200).json({
+        message: "Data Edited",
+        data: data
+    })).catch(error => res.status(404).send(error))
+}
+
+exports.delete = (req, res) => {
+    Products.findByIdAndDelete(req.params.id)
+        .then(data => res.status(200).json({
+            message: "Data Deleted",
+            data: data
+        })).catch(error => res.status(404).send(error))
+}
