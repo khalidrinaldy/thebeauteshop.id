@@ -24,6 +24,15 @@ const productSchema = new Schema({
     productDescription: {
         type: String,
     },
+    productRating: {
+        rating: {
+            type: mongoose.Types.Decimal128,
+            default: 0
+        },
+        ratingList: {
+            type: Array
+        }
+    },
     productSold: {
         type: Number,
     },

@@ -22,6 +22,9 @@ exports.create = (req, res) => {
         productSkinType: req.body.productSkinType,
         productSize: req.body.productSize,
         productDescription: req.body.productDescription,
+        productRating: {
+            rating: 0
+        },
         productSold: req.body.productSold,
         productImage: req.body.productImage
     });
