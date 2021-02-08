@@ -18,5 +18,6 @@ router.route('/data-products/:id')
     .get(productController.getOne)
     .put(productController.edit)
     .delete(productController.delete)
+    .patch(productController.addReview)
     
 module.exports = router;

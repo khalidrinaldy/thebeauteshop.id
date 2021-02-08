@@ -59,3 +59,14 @@ exports.delete = (req, res) => {
             data: data
         })).catch(error => res.status(404).send(error))
 }
+
+exports.addReview = (req, res) => {
+    Products.findByIdAndUpdate(req.params.id, {$push: {'productRating.ratingList': {
+        userName: req.body.userName,
+        reviewRating: req.body.reviewRating,
+        reviewDescription: req.body.reviewDescription
+    }}}).then(data => res.status(200).json({
+        message: "Review Updated",
+        data: data
+    })).catch(error => res.send(error))
+}

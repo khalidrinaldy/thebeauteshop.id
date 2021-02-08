@@ -29,9 +29,11 @@ const productSchema = new Schema({
             type: mongoose.Types.Decimal128,
             default: 0
         },
-        ratingList: {
-            type: Array
-        }
+        ratingList: [{
+            userName: String,
+            reviewRating: Number,
+            reviewDescription: String
+        }]
     },
     productSold: {
         type: Number,
